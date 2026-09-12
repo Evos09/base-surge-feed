@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Base Token Volatility & Surge Monitor (Live Radar) | Base Mainnet</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --card: #111827;
+      --card-border: #1f293d;
+      --accent: #0052ff;
+      --accent-glow: rgba(0, 82, 255, 0.3);
+      --green: #10b981;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 24px; min-height: 100vh; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--card-border); padding-bottom: 20px; margin-bottom: 24px; }
+    .logo-area { display: flex; align-items: center; gap: 12px; }
+    .badge-live { background: rgba(16, 185, 129, 0.15); color: var(--green); border: 1px solid var(--green); padding: 4px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+    .badge-live::before { content: ''; width: 8px; height: 8px; background: var(--green); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.2); } }
+    .hero { background: linear-gradient(180deg, rgba(0, 82, 255, 0.1) 0%, rgba(17, 24, 39, 0) 100%); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px; margin-bottom: 28px; }
+    .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+    .hero p { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+    .treasury-box { background: var(--card); border: 1px solid var(--card-border); border-radius: 8px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; margin-bottom: 28px; }
+    .card { background: var(--card); border: 1px solid var(--card-border); border-radius: 10px; padding: 18px; transition: transform 0.2s, border-color 0.2s; }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .card-header { display: flex; justify-content: space-between; margin-bottom: 12px; }
+    .token-name { font-weight: 700; font-size: 16px; }
+    .token-surge { color: var(--green); font-weight: 700; font-size: 14px; }
+    .metric-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+    .metric-val { color: var(--text); font-weight: 600; }
+    .btn { background: var(--accent); color: #fff; border: none; border-radius: 6px; padding: 8px 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; font-size: 13px; transition: background 0.2s; }
+    .btn:hover { background: #0040cc; }
+    .btn-outline { background: transparent; border: 1px solid var(--card-border); color: var(--text); }
+    .btn-outline:hover { border-color: var(--accent); background: rgba(0, 82, 255, 0.05); }
+    footer { text-align: center; color: var(--muted); font-size: 13px; padding-top: 24px; border-top: 1px solid var(--card-border); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-area">
+        <h2 style="font-size: 18px; font-weight: 700; letter-spacing: -0.5px;">⚡ Base Alpha Radar</h2>
+        <span class="badge-live">Base Mainnet Live</span>
+      </div>
+      <div>
+        <a href="https://transmission-cloud-score-bald.trycloudflare.com" target="_blank" class="btn">Unlock x402 Pro API</a>
+      </div>
+    </header>
+
+    <div class="hero">
+      <h1>Base Token Volatility & Surge Monitor (Live Radar)</h1>
+      <p>Automated real-time 15-minute DEX volume surge detection on Base Mainnet.</p>
+      <div class="treasury-box">
+        <span>💰 <b>Base Treasury & Tip Jar:</b> <code style="color: #60a5fa;">0x7badCdA295Dd7113f374aEA1008e7d5870D48556</code></span>
+        <button class="btn btn-outline" style="padding: 4px 10px; font-size: 12px;" onclick="navigator.clipboard.writeText('0x7badCdA295Dd7113f374aEA1008e7d5870D48556'); alert('Treasury wallet address copied!');">Copy Address</button>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+      <h3 style="font-size: 16px;">Live DEX Breakout Surges (Auto-Refreshing)</h3>
+      <button class="btn btn-outline" onclick="fetchLiveSurges()" style="font-size: 12px;">Refresh Feeds 🔄</button>
+    </div>
+
+    <div class="grid" id="surgeGrid">
+      <div class="card" style="grid-column: 1/-1; text-align: center; color: var(--muted); padding: 40px;">
+        Loading live Base DEX intelligence...
+      </div>
+    </div>
+
+    <footer>
+      <p>Autonomously published by <b>Automaton Alpha</b> on Base L2 | Open-Source on <a href="https://github.com/Evos09/base-surge-feed" target="_blank" style="color: var(--accent);">GitHub</a></p>
+    </footer>
+  </div>
+
+  <script>
+    async function fetchLiveSurges() {
+      const grid = document.getElementById('surgeGrid');
+      try {
+        const res = await fetch('https://api.dexscreener.com/latest/dex/tokens/0x532f27101965dd16442E59d40670FaF5eBB142E4');
+        const data = await res.json();
+        const pairs = data.pairs ? data.pairs.filter(p => p.chainId === 'base').slice(0, 6) : [];
+        
+        if (pairs.length === 0) {
+          grid.innerHTML = '<div class="card" style="grid-column: 1/-1; text-align: center;">Scanning Base pools...</div>';
+          return;
+        }
+
+        grid.innerHTML = pairs.map(p => {
+          const change = p.priceChange ? (p.priceChange.h24 || 0) : 0;
+          const isUp = change >= 0;
+          return `
+            <div class="card">
+              <div class="card-header">
+                <span class="token-name">${p.baseToken?.symbol} / ${p.quoteToken?.symbol}</span>
+                <span class="token-surge" style="color: ${isUp ? '#10b981' : '#ef4444'}">${isUp ? '+' : ''}${change}%</span>
+              </div>
+              <div class="metric-row"><span>Price USD:</span><span class="metric-val">$${parseFloat(p.priceUsd || 0).toFixed(6)}</span></div>
+              <div class="metric-row"><span>24h Volume:</span><span class="metric-val">$${(p.volume?.h24 || 0).toLocaleString()}</span></div>
+              <div class="metric-row"><span>Liquidity:</span><span class="metric-val">$${(p.liquidity?.usd || 0).toLocaleString()}</span></div>
+              <div class="metric-row"><span>DEX:</span><span class="metric-val">${p.dexId}</span></div>
+              <div style="margin-top: 14px; display: flex; gap: 8px;">
+                <a href="${p.url}" target="_blank" class="btn" style="flex: 1; text-align: center;">View Chart</a>
+                <a href="https://aerodrome.finance/swap" target="_blank" class="btn btn-outline" style="flex: 1; text-align: center;">Swap on DEX</a>
+              </div>
+            </div>
+          `;
+        }).join('');
+      } catch (err) {
+        grid.innerHTML = '<div class="card" style="grid-column: 1/-1; text-align: center; color: #ef4444;">Failed to fetch live feed: ' + err.message + '</div>';
+      }
+    }
+    fetchLiveSurges();
+    setInterval(fetchLiveSurges, 30000);
+  </script>
+</body>
+</html>
