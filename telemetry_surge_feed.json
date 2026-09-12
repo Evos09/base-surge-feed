@@ -1,0 +1,188 @@
+[
+  {
+    "timestamp": "2026-09-12T16:40:42.529Z",
+    "treasuryRecipient": "0x7badCdA295Dd7113f374aEA1008e7d5870D48556",
+    "detectedCount": 5,
+    "surges": [
+      {
+        "token": "ELON / SPCXc",
+        "priceUSD": 0.00000192483279929326,
+        "priceChange24hPct": 673.748,
+        "volume24hUSD": 1791115.08731071,
+        "reserveUSD": 101869.2274,
+        "dex": "bankr",
+        "poolAddress": "0x955590753d5c19ab840d2901900625a8dcee8aa54f4184c84a79e015673b10ae",
+        "signal": "STRONG_BREAKOUT",
+        "timestamp": "2026-09-12T16:40:42.265Z"
+      },
+      {
+        "token": "BPAD / USDC 1%",
+        "priceUSD": 0.000511070943694936,
+        "priceChange24hPct": 25.722,
+        "volume24hUSD": 197297.339090812,
+        "reserveUSD": 75167.4983,
+        "dex": "uniswap-v3-base",
+        "poolAddress": "0x863e852fe65a6226bcc7a2ca0a32aa5435126cfd",
+        "signal": "STRONG_BREAKOUT",
+        "timestamp": "2026-09-12T16:40:42.265Z"
+      },
+      {
+        "token": "GITLAWB / WETH",
+        "priceUSD": 0.0000302070704037434,
+        "priceChange24hPct": 19.77,
+        "volume24hUSD": 192019.284853952,
+        "reserveUSD": 1646004.7672,
+        "dex": "uniswap-v4-base",
+        "poolAddress": "0xec33256bf1ded407a57fd3c1965e7556e42ac14db09bc4e6fef57d5e2eb0b0b9",
+        "signal": "STRONG_BREAKOUT",
+        "timestamp": "2026-09-12T16:40:42.264Z"
+      },
+      {
+        "token": "NOCK / USDC",
+        "priceUSD": 0.0444822639130008,
+        "priceChange24hPct": 17.506,
+        "volume24hUSD": 2115083.6405039,
+        "reserveUSD": 1512010.8613,
+        "dex": "aerodrome-base",
+        "poolAddress": "0x85f1aa3a70fedd1c52705c15baed143e675cd626",
+        "signal": "STRONG_BREAKOUT",
+        "timestamp": "2026-09-12T16:40:42.265Z"
+      },
+      {
+        "token": "BSTONK / USDC 0.3%",
+        "priceUSD": 0.00626892044633022,
+        "priceChange24hPct": 14.688,
+        "volume24hUSD": 475024.342096119,
+        "reserveUSD": 282677.5839,
+        "dex": "uniswap-v4-base",
+        "poolAddress": "0xc9786476d2492eb8ddb2ebf8b4b69e227e1f31397c790d877541ab0ed5cf5ee2",
+        "signal": "MOMENTUM_SURGE",
+        "timestamp": "2026-09-12T16:40:42.265Z"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-12T16:40:26.577Z",
+    "treasuryRecipient": "0x7badCdA295Dd7113f374aEA1008e7d5870D48556",
+    "detectedCount": 5,
+    "surges": [
+      {
+        "token": "ELON / SPCXc",
+        "priceUSD": 0.00000192483279929326,
+        "priceChange24hPct": 673.748,
+        "volume24hUSD": 1791115.08731071,
+        "reserveUSD": 101869.2274,
+        "dex": "bankr",
+        "poolAddress": "0x955590753d5c19ab840d2901900625a8dcee8aa54f4184c84a79e015673b10ae",
+        "signal": "STRONG_BREAKOUT",
+        "timestamp": "2026-09-12T16:40:26.564Z"
+      },
+      {
+        "token": "BPAD / USDC 1%",
+        "priceUSD": 0.000511070943694936,
+        "priceChange24hPct": 25.722,
+        "volume24hUSD": 197297.339090812,
+        "reserveUSD": 75167.4983,
+        "dex": "uniswap-v3-base",
+        "poolAddress": "0x863e852fe65a6226bcc7a2ca0a32aa5435126cfd",
+        "signal": "STRONG_BREAKOUT",
+        "timestamp": "2026-09-12T16:40:26.564Z"
+      },
+      {
+        "token": "GITLAWB / WETH",
+        "priceUSD": 0.0000302070704037434,
+        "priceChange24hPct": 19.77,
+        "volume24hUSD": 192019.284853952,
+        "reserveUSD": 1646004.7672,
+        "dex": "uniswap-v4-base",
+        "poolAddress": "0xec33256bf1ded407a57fd3c1965e7556e42ac14db09bc4e6fef57d5e2eb0b0b9",
+        "signal": "STRONG_BREAKOUT",
+        "timestamp": "2026-09-12T16:40:26.563Z"
+      },
+      {
+        "token": "NOCK / USDC",
+        "priceUSD": 0.0444822639130008,
+        "priceChange24hPct": 17.506,
+        "volume24hUSD": 2115083.6405039,
+        "reserveUSD": 1512010.8613,
+        "dex": "aerodrome-base",
+        "poolAddress": "0x85f1aa3a70fedd1c52705c15baed143e675cd626",
+        "signal": "STRONG_BREAKOUT",
+        "timestamp": "2026-09-12T16:40:26.564Z"
+      },
+      {
+        "token": "BSTONK / USDC 0.3%",
+        "priceUSD": 0.00626892044633022,
+        "priceChange24hPct": 14.688,
+        "volume24hUSD": 475024.342096119,
+        "reserveUSD": 282677.5839,
+        "dex": "uniswap-v4-base",
+        "poolAddress": "0xc9786476d2492eb8ddb2ebf8b4b69e227e1f31397c790d877541ab0ed5cf5ee2",
+        "signal": "MOMENTUM_SURGE",
+        "timestamp": "2026-09-12T16:40:26.564Z"
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-12T16:40:21.118Z",
+    "treasuryRecipient": "0x7badCdA295Dd7113f374aEA1008e7d5870D48556",
+    "detectedCount": 5,
+    "surges": [
+      {
+        "token": "ELON / SPCXc",
+        "priceUSD": 0.00000192483279929326,
+        "priceChange24hPct": 673.748,
+        "volume24hUSD": 1791115.08731071,
+        "reserveUSD": 101869.2274,
+        "dex": "bankr",
+        "poolAddress": "0x955590753d5c19ab840d2901900625a8dcee8aa54f4184c84a79e015673b10ae",
+        "signal": "STRONG_BREAKOUT",
+        "timestamp": "2026-09-12T16:40:21.107Z"
+      },
+      {
+        "token": "BPAD / USDC 1%",
+        "priceUSD": 0.000511070943694936,
+        "priceChange24hPct": 25.722,
+        "volume24hUSD": 197297.339090812,
+        "reserveUSD": 75167.4983,
+        "dex": "uniswap-v3-base",
+        "poolAddress": "0x863e852fe65a6226bcc7a2ca0a32aa5435126cfd",
+        "signal": "STRONG_BREAKOUT",
+        "timestamp": "2026-09-12T16:40:21.107Z"
+      },
+      {
+        "token": "GITLAWB / WETH",
+        "priceUSD": 0.0000302070704037434,
+        "priceChange24hPct": 19.77,
+        "volume24hUSD": 192019.284853952,
+        "reserveUSD": 1646004.7672,
+        "dex": "uniswap-v4-base",
+        "poolAddress": "0xec33256bf1ded407a57fd3c1965e7556e42ac14db09bc4e6fef57d5e2eb0b0b9",
+        "signal": "STRONG_BREAKOUT",
+        "timestamp": "2026-09-12T16:40:21.106Z"
+      },
+      {
+        "token": "NOCK / USDC",
+        "priceUSD": 0.0444822639130008,
+        "priceChange24hPct": 17.506,
+        "volume24hUSD": 2115083.6405039,
+        "reserveUSD": 1512010.8613,
+        "dex": "aerodrome-base",
+        "poolAddress": "0x85f1aa3a70fedd1c52705c15baed143e675cd626",
+        "signal": "STRONG_BREAKOUT",
+        "timestamp": "2026-09-12T16:40:21.107Z"
+      },
+      {
+        "token": "BSTONK / USDC 0.3%",
+        "priceUSD": 0.00626892044633022,
+        "priceChange24hPct": 14.688,
+        "volume24hUSD": 475024.342096119,
+        "reserveUSD": 282677.5839,
+        "dex": "uniswap-v4-base",
+        "poolAddress": "0xc9786476d2492eb8ddb2ebf8b4b69e227e1f31397c790d877541ab0ed5cf5ee2",
+        "signal": "MOMENTUM_SURGE",
+        "timestamp": "2026-09-12T16:40:21.107Z"
+      }
+    ]
+  }
+]
