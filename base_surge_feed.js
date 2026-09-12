@@ -35,6 +35,52 @@ async function streamToPaywall(surgeData) {
   }
 }
 
+const recentAlerts = new Map(); // Key: token symbol, Value: timestamp
+
+async function dispatchTelegramAlert(surge) {
+  const tgToken = process.env.TELEGRAM_BOT_TOKEN;
+  const tgChatId = process.env.TELEGRAM_CHAT_ID;
+  if (!tgToken || !tgChatId) return;
+
+  const key = surge.token || surge.symbol;
+  const now = Date.now();
+  if (recentAlerts.has(key) && (now - recentAlerts.get(key) < 30 * 60 * 1000)) {
+    return; // Cooldown: do not re-alert within 30 minutes
+  }
+  recentAlerts.set(key, now);
+
+  const priceStr = surge.priceUSD < 0.01 ? surge.priceUSD.toFixed(8) : surge.priceUSD.toFixed(4);
+  const volStr = Math.round(surge.volume24hUSD || 0).toLocaleString();
+
+  const text = `🚨 *BASE DEX BREAKOUT SURGE!*\n\n` +
+    `🪙 *Asset*: \`${surge.token}\`\n` +
+    `📈 *Move*: +${surge.priceChange24hPct}%\n` +
+    `💵 *Price*: $${priceStr}\n` +
+    `📊 *24h Volume*: $${volStr}\n` +
+    `🏦 *DEX*: ${surge.dex || 'Base DEX'}\n\n` +
+    `🌐 *Live Radar*: https://evos09.github.io/base-surge-feed/\n` +
+    `💰 *Tip Treasury*: \`${TREASURY_WALLET}\``;
+
+  try {
+    const res = await fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: tgChatId,
+        text: text,
+        parse_mode: "Markdown",
+        disable_web_page_preview: true,
+      }),
+    });
+    const data = await res.json();
+    if (data.ok) {
+      console.log(`[Telegram] 📲 Dispatched breakout alert for ${surge.token} to channel!`);
+    }
+  } catch (err) {
+    console.warn(`[Telegram Alert Error]: ${err.message}`);
+  }
+}
+
 /**
  * Appends live telemetry to local storage
  */
@@ -86,6 +132,13 @@ export async function runSurgeScan() {
         );
       });
       console.log("--------------------------------\n");
+
+      // Dispatch top breakouts to Telegram
+      for (const s of surgeResult.surges.slice(0, 2)) {
+        if (parseFloat(s.priceChange24hPct) >= 15) {
+          await dispatchTelegramAlert(s);
+        }
+      }
     }
 
     // 2. Stream to x402 paywall server

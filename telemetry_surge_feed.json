@@ -1,5 +1,67 @@
 [
   {
+    "timestamp": "2026-09-12T17:17:46.219Z",
+    "treasuryRecipient": "0x7badCdA295Dd7113f374aEA1008e7d5870D48556",
+    "detectedCount": 5,
+    "surges": [
+      {
+        "token": "ELON / SPCXc",
+        "priceUSD": 0.00000185519685211254,
+        "priceChange24hPct": 645.755,
+        "volume24hUSD": 1793486.63507603,
+        "reserveUSD": 100534.9021,
+        "dex": "bankr",
+        "poolAddress": "0x955590753d5c19ab840d2901900625a8dcee8aa54f4184c84a79e015673b10ae",
+        "signal": "STRONG_BREAKOUT",
+        "timestamp": "2026-09-12T17:17:46.207Z"
+      },
+      {
+        "token": "NOCK / USDC",
+        "priceUSD": 0.0448969344779653,
+        "priceChange24hPct": 15.346,
+        "volume24hUSD": 2095557.81594607,
+        "reserveUSD": 1519129.8796,
+        "dex": "aerodrome-base",
+        "poolAddress": "0x85f1aa3a70fedd1c52705c15baed143e675cd626",
+        "signal": "STRONG_BREAKOUT",
+        "timestamp": "2026-09-12T17:17:46.207Z"
+      },
+      {
+        "token": "BPAD / USDC 1%",
+        "priceUSD": 0.00045308801266513,
+        "priceChange24hPct": 13.363,
+        "volume24hUSD": 185625.439860464,
+        "reserveUSD": 72243.7333,
+        "dex": "uniswap-v3-base",
+        "poolAddress": "0x863e852fe65a6226bcc7a2ca0a32aa5435126cfd",
+        "signal": "MOMENTUM_SURGE",
+        "timestamp": "2026-09-12T17:17:46.207Z"
+      },
+      {
+        "token": "GITLAWB / WETH",
+        "priceUSD": 0.0000336223709408842,
+        "priceChange24hPct": 9.692,
+        "volume24hUSD": 163383.106043407,
+        "reserveUSD": 1718989.6031,
+        "dex": "uniswap-v4-base",
+        "poolAddress": "0xec33256bf1ded407a57fd3c1965e7556e42ac14db09bc4e6fef57d5e2eb0b0b9",
+        "signal": "MOMENTUM_SURGE",
+        "timestamp": "2026-09-12T17:17:46.206Z"
+      },
+      {
+        "token": "BSTONK / USDC 0.3%",
+        "priceUSD": 0.00611867626582857,
+        "priceChange24hPct": 8.423,
+        "volume24hUSD": 477502.560489708,
+        "reserveUSD": 284287.0406,
+        "dex": "uniswap-v4-base",
+        "poolAddress": "0xc9786476d2492eb8ddb2ebf8b4b69e227e1f31397c790d877541ab0ed5cf5ee2",
+        "signal": "MOMENTUM_SURGE",
+        "timestamp": "2026-09-12T17:17:46.207Z"
+      }
+    ]
+  },
+  {
     "timestamp": "2026-09-12T16:40:42.529Z",
     "treasuryRecipient": "0x7badCdA295Dd7113f374aEA1008e7d5870D48556",
     "detectedCount": 5,
